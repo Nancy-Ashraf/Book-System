@@ -1,0 +1,34 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css" />
+     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Lab5.styles.css" asp-append-version="true" />
+    @RenderSection("scripts",false)
+    <title>@ViewBag.Title</title>
+
+    
+    @*false-> means that it is not required to use it in all pages using that layout -> default= true ->whitch means required*@
+</head>
+<body>
+    <div>
+        <a href="/book/index" class="btn btn-secondary">Book</a>
+        <a href="/book/index" class="btn btn-secondary">Book</a>
+        <a href="/book/index" class="btn btn-secondary">Book</a>
+        <a href="/book/index" class="btn btn-secondary">Book</a>
+        <a href="/book/index" class="btn btn-secondary">Book</a>
+    </div>
+
+    <br />
+    @RenderBody()
+
+    
+</body>
+</html>

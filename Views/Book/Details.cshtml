@@ -1,0 +1,17 @@
+﻿@model Book
+@{
+    ViewBag.Title = "Details";
+}
+
+    <h1 class="alert alert-danger">
+        @Model.BookId  <br/>
+        @Model.Title <br />
+        @Model.Price <br />
+        @Model.ImageUrl<br />
+        @Model.Description <br />
+    </h1>
+
+@section scripts{
+    @*we may use it to but css or js files*@
+    @*we use section to but a part of a code if is not in the body or something like that*@
+}

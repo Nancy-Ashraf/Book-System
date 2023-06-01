@@ -1,0 +1,23 @@
+﻿@model Book
+@{
+    ViewBag.Title = "Update";
+}
+
+
+    <form method="post">
+       <label asp-for="BookId"></label>: @Model.BookId
+       <input asp-for="BookId" hidden/><br />
+      
+        
+        
+        <partial name="CreateUpdateBook" />
+        <input type="submit" value="Update" />
+    </form>
+ 
+ 
+@section scripts{
+    @* used for client side validation with tag helpers*@
+         <script src="~/LIB/jquery/dist/jquery.js"></script>
+        <script src="~/LIB/jquery-validation/dist/jquery.validate.js"></script>
+        <script src="~/LIB/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+}

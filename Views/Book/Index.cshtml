@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Book> 
+@{
+    @*Layout = "_Layout2";*@ //_viewStart -> will replace it
+    
+    ViewBag.Title = "Index";
+}
+
+
+    @* <a href="/book/create" class="btn btn-primary">Create</a> *@
+    <br />
+    <a asp-action="create" asp-controller="book" class="btn btn-primary"> Create </a> <br /><br />
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Language</th>
+                <th>PublishedOn</th>
+                <th>Price</th>
+                <th>ImageUrl</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                @if (Model?.Count() == 0 || Model==null)
+                {
+                    <tr>
+                        <td colspan="7"> No Data</td>
+                    </tr>
+                }
+                else
+                {
+                    
+                    foreach(var book in Model)
+                    {
+                        <tr>
+                            <td>@book.BookId</td>
+                            <td>@book.Title</td>
+                            <td>@book.Description</td>
+                            <td>@book.Language</td>
+                            <td>@book.PublishedOn</td>
+                            <td>@book.Price</td>
+                            <td>@book.ImageUrl</td>
+                            <td> <a href="/book/details/@book.BookId" class="btn btn-info"> Details</a></td> 
+                            <td> <a href="/book/update/@book.BookId" class="btn btn-success"> Update </a></td> 
+                            <td> <a href="/book/delete/@book.BookId" class="btn btn-danger"
+                                @*onclick="return confirm('are you sure')" -> client side confirm*@
+                            > Delete </a></td>                     
+                        </tr>
+                    }
+                }
+            
+            </tr>
+
+        </tbody>
+    </table>
+
+@section scripts{
+    @*we may use it to but css or js files*@
+    @*we use section to but a part of a code if is not in the body or something like that*@
+}

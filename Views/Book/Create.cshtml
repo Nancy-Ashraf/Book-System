@@ -1,0 +1,52 @@
+﻿@model Book //that will make the view strongly typed view -> then we can use tag helper
+@{
+    ViewBag.Title = "Create"; //will send to _Layout2
+}
+
+    @*<form asp-action="Create" asp-Controller="book"> -> the method will be post by default*@
+    <form method="post">
+        <label asp-for="BookId"></label>: @*create lable called with text (BookId) contain an attribute called for =BookId-> hywadeni 3la al control alyy al id bta3o asmo BookId *@
+        <input asp-for="BookId" />
+        <span asp-validation-for="BookId"></span> 
+       
+        @*Description: <input type="text" name="Description" /><br />*@
+
+        <partial name="CreateUpdateBook" />
+
+        <input type="submit" value="ADD" />
+    </form>
+   
+
+@section scripts{
+    @* used for client side validation with tag helpers*@
+         <script src="~/LIB/jquery/dist/jquery.js"></script>
+        <script src="~/LIB/jquery-validation/dist/jquery.validate.js"></script>
+        <script src="~/LIB/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@* data will be send in the structure of ((query string)) in the url but it will be hidden as the method is post*@
+
+@*we put in the name objectName.propertyName or propertyName only...bt we must uniform the way*@
+
+
+   @* tag helper is better because
+    1-if the value is written wrongly-> it will generate compile time error -> ex:BoofId instead of BookId
+    2- it will help with the validation rules in the Model
+    3-it return a text represent html code contains the rules of the input value -> that will help us in valedationg the input data
+
+    *@
